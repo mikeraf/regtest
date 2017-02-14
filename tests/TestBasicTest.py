@@ -20,17 +20,17 @@ class Test(unittest.TestCase):
         mycls = MyClass(30)
         mycls.setCallbacks([mycls.checkDivBy2, mycls.checkDivBy3, mycls.checkDivBy5])
         mycls.run()
-        self.assertEqual(mycls.status[mycls.checkDivBy2], ObjectStatus.COMPLETED)
-        self.assertEqual(mycls.status[mycls.checkDivBy3], ObjectStatus.COMPLETED)
-        self.assertEqual(mycls.status[mycls.checkDivBy5], ObjectStatus.COMPLETED)
+        self.assertEqual(mycls._status[mycls.checkDivBy2], ObjectStatus.COMPLETED)
+        self.assertEqual(mycls._status[mycls.checkDivBy3], ObjectStatus.COMPLETED)
+        self.assertEqual(mycls._status[mycls.checkDivBy5], ObjectStatus.COMPLETED)
     
     def testDeployWithFail(self):        
         mycls = MyClass(6)
         mycls.setCallbacks([mycls.checkDivBy2, mycls.checkDivBy3, mycls.checkDivBy5])
         mycls.run()
-        self.assertEqual(mycls.status[mycls.checkDivBy2], ObjectStatus.COMPLETED)
-        self.assertEqual(mycls.status[mycls.checkDivBy3], ObjectStatus.COMPLETED)
-        self.assertEqual(mycls.status[mycls.checkDivBy5], ObjectStatus.ERROR)
+        self.assertEqual(mycls._status[mycls.checkDivBy2], ObjectStatus.COMPLETED)
+        self.assertEqual(mycls._status[mycls.checkDivBy3], ObjectStatus.COMPLETED)
+        self.assertEqual(mycls._status[mycls.checkDivBy5], ObjectStatus.ERROR)
         
 
 

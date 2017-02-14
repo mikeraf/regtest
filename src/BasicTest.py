@@ -19,7 +19,7 @@ class MyClass(object):
         Constructor
         '''
         self.params = params
-        self.status = {}
+        self._status = {}
         self.workflow = GenericWorkflowEngine()
     
     def get_params(self):
@@ -32,17 +32,17 @@ class MyClass(object):
 
 
     def checkDivBy2(self, *args):
-        self.status[self.checkDivBy2] = ObjectStatus.ERROR if args[0]%2 else ObjectStatus.COMPLETED
+        self._status[self.checkDivBy2] = ObjectStatus.ERROR if args[0]%2 else ObjectStatus.COMPLETED
         pass
 
         
     def checkDivBy3(self, *args):
-        self.status[self.checkDivBy3] =  ObjectStatus.ERROR if args[0]%3 else ObjectStatus.COMPLETED
+        self._status[self.checkDivBy3] =  ObjectStatus.ERROR if args[0]%3 else ObjectStatus.COMPLETED
         pass
 
     
     def checkDivBy5(self, *args):
-        self.status[self.checkDivBy5] =  ObjectStatus.ERROR if args[0]%5 else ObjectStatus.COMPLETED
+        self._status[self.checkDivBy5] =  ObjectStatus.ERROR if args[0]%5 else ObjectStatus.COMPLETED
         pass
 
     
